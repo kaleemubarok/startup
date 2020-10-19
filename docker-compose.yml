@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  db:
+    image: woahbase/alpine-mysql:x86_64
+    restart: always
+    environment:
+      MYSQL_ROOT_PWD: 'root'
+      MYSQL_USER: 'mysql'
+      MYSQL_USER_PWD: 'mysql'
+      MYSQL_USER_DB: 'startup'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
