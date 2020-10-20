@@ -9,15 +9,36 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e2d9e37-b8de-4195-9e04-a9d58ffa5439" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/user/entity.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../flutter/flutter" beforeDir="false" afterPath="$PROJECT_DIR$/../../flutter/flutter" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/input.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/input.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../svelte/cloud-native-web" beforeDir="false" afterPath="$PROJECT_DIR$/../../svelte/cloud-native-web" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +55,13 @@
   </component>
   <component name="GOROOT" path="$USER_HOME$/go/go1.15.2" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
@@ -64,7 +91,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,7 +102,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -102,26 +141,34 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="616" y="238" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1602961248550" />
-    <state width="1126" height="295" key="GridCell.Tab.0.bottom" timestamp="1602946201147">
+    <state x="713" y="429" key="Github.ShareDialog" timestamp="1603129342666">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1602946201147" />
-    <state width="1126" height="295" key="GridCell.Tab.0.center" timestamp="1602946201146">
+    <state x="713" y="429" key="Github.ShareDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603129342666" />
+    <state width="1126" height="295" key="GridCell.Tab.0.bottom" timestamp="1603204225673">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1602946201146" />
-    <state width="1126" height="295" key="GridCell.Tab.0.left" timestamp="1602946201143">
+    <state width="1126" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1603204225673" />
+    <state width="1126" height="295" key="GridCell.Tab.0.center" timestamp="1603204225672">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1602946201143" />
-    <state width="1126" height="295" key="GridCell.Tab.0.right" timestamp="1602946201147">
+    <state width="1126" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1603204225672" />
+    <state width="1126" height="295" key="GridCell.Tab.0.left" timestamp="1603204225670">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1602946201147" />
-    <state x="341" y="164" key="SettingsEditor" timestamp="1602947227663">
+    <state width="1126" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1603204225670" />
+    <state width="1126" height="295" key="GridCell.Tab.0.right" timestamp="1603204225673">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1602947227663" />
+    <state width="1126" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1603204225673" />
+    <state x="341" y="164" key="SettingsEditor" timestamp="1603130076259">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1603130076259" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1603129374053">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1603129374053" />
     <state x="747" y="409" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1602956061288">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -142,13 +189,17 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="538" y="157" width="604" height="735" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1602956658502" />
-    <state width="600" height="428" key="javadoc.popup" timestamp="1603126974446">
+    <state x="662" y="426" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1603129268600">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="600" height="428" key="javadoc.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603126974446" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1603123905084">
+    <state x="662" y="426" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603129268600" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1603189173868">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603123905084" />
+    <state width="600" height="428" key="javadoc.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603189173868" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1603130290838">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603130290838" />
   </component>
 </project>
