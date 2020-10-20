@@ -2,6 +2,7 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
+	"log"
 	"net/http"
 	"startup/helper"
 	"startup/user"
@@ -61,8 +62,8 @@ func (h *userHandler) Login(c *gin.Context) {
 
 	formatter := user.FormatUser(loginUser, "token")
 	response := helper.APIRespose("Successfully login.", http.StatusOK, "success", formatter)
+
 	c.JSON(http.StatusOK, response)
-	return
 }
 
 func (h *userHandler) CheckEmailAvailability(c *gin.Context) {
@@ -90,6 +91,45 @@ func (h *userHandler) CheckEmailAvailability(c *gin.Context) {
 	}
 	data := gin.H{"is_available": isEmailAvailable}
 	response := helper.APIRespose(metaMessage, http.StatusOK, "success", data)
+
 	c.JSON(http.StatusOK, response)
-	return
+}
+
+func (h *userHandler) UploadAvatar(c *gin.Context) {
+	file, err := c.FormFile("avatar")
+	if err != nil {
+		log.Println("FormFile: "+err.Error())
+		errorMessage := gin.H{"is_uploaded": false}
+		response := helper.APIRespose("Failed to upload avatar file.", http.StatusBadRequest, "error", errorMessage)
+		c.JSON(http.StatusUnprocessableEntity, response)
+		return
+	}
+
+	path := "images/" + file.Filename
+
+	err = c.SaveUploadedFile(file, path)
+	if err != nil {
+		log.Println("SaveUploadedFile: "+err.Error())
+
+		errorMessage := gin.H{"is_uploaded": false}
+		response := helper.APIRespose("Failed to upload avatar file.", http.StatusBadRequest, "error", errorMessage)
+		c.JSON(http.StatusUnprocessableEntity, response)
+		return
+	}
+
+	//TODO jwt get userID
+	userID := 3
+	_, err = h.userService.SaveAvatar(userID, path)
+	if err != nil {
+		log.Println("SaveAvatar: "+err.Error())
+
+		errorMessage := gin.H{"is_uploaded": false}
+		response := helper.APIRespose("Failed to upload avatar file.", http.StatusBadRequest, "error", errorMessage)
+		c.JSON(http.StatusUnprocessableEntity, response)
+		return
+	}
+	data := gin.H{"is_uploaded": true}
+	response := helper.APIRespose("Avatar successfully uploaded.", http.StatusOK, "success", data)
+
+	c.JSON(http.StatusOK, response)
 }
