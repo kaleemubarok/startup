@@ -5,6 +5,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
+	"startup/auth"
 	"startup/handler"
 	"startup/user"
 )
@@ -19,9 +20,11 @@ func main() {
 
 	userRepository := user.NewRepository(db)
 	userService := user.NewService(userRepository)
-	userHandler := handler.NewUserHandler(userService)
+	authService:= auth.NewService()
+	userHandler := handler.NewUserHandler(userService,authService)
 
-	userService.SaveAvatar(3,"Test-avatar-save.png")
+	//userService.SaveAvatar(3,"Test-avatar-save.png")
+	//log.Println(authService.GenerateToken(8098999999))
 
 	router := gin.Default()
 	api := router.Group("/api/v1")
