@@ -22,10 +22,7 @@ func main() {
 	userService := user.NewService(userRepository)
 	authService:= auth.NewService()
 	userHandler := handler.NewUserHandler(userService,authService)
-
-	//userService.SaveAvatar(3,"Test-avatar-save.png")
-	//log.Println(authService.GenerateToken(8098999999))
-
+	
 	router := gin.Default()
 	api := router.Group("/api/v1")
 	api.POST("/users", userHandler.RegisterUser)
