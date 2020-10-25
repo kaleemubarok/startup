@@ -1027,7 +1027,7 @@
       <ObjectGrants>ALL PRIVILEGES|startup:null
 </ObjectGrants>
     </user>
-    <table id="328" parent="3" name="campaign_image"/>
+    <table id="328" parent="3" name="campaign_images"/>
     <table id="329" parent="3" name="campaigns"/>
     <table id="330" parent="3" name="transactions"/>
     <table id="331" parent="3" name="users"/>
@@ -1071,7 +1071,7 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="340" parent="328" name="campaign_image_ibfk_1">
+    <foreign-key id="340" parent="328" name="campaign_images_ibfk_1">
       <ColNames>campaign_id</ColNames>
       <RefTableName>campaigns</RefTableName>
       <RefColNames>id</RefColNames>

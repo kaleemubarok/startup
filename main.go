@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"startup/auth"
+	"startup/campaign"
 	"startup/handler"
 	"startup/helper"
 	"startup/user"
@@ -26,6 +27,16 @@ func main() {
 	userService := user.NewService(userRepository)
 	authService := auth.NewService()
 	userHandler := handler.NewUserHandler(userService, authService)
+
+	campaignRepository := campaign.NewRepository(db)
+	campaigns,err:=campaignRepository.FindByUserID(12)
+	if err != nil {
+		log.Println("Error on gettingAllCampaign")
+	}
+	//for _,campaign:= range campaigns{
+	//	campaign.ID
+	//}
+	log.Println(campaigns)
 
 	router := gin.Default()
 	api := router.Group("/api/v1")

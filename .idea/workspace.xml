@@ -32,6 +32,11 @@
     <list default="true" id="7e2d9e37-b8de-4195-9e04-a9d58ffa5439" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../flutter/flutter" beforeDir="false" afterPath="$PROJECT_DIR$/../../flutter/flutter" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/07016439-071d-46eb-a21e-0b3259469263.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/07016439-071d-46eb-a21e-0b3259469263.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/entity.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/entity.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../svelte/cloud-native-web" beforeDir="false" afterPath="$PROJECT_DIR$/../../svelte/cloud-native-web" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,6 +171,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="747" y="409" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1680.1050@0.0.1680.1050" timestamp="1602956061288" />
+    <state x="610" y="352" width="460" height="341" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603640953875">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="610" y="352" width="460" height="341" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603640953875" />
     <state x="685" y="305" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1602956080865">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
