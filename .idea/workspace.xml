@@ -32,10 +32,6 @@
     <list default="true" id="7e2d9e37-b8de-4195-9e04-a9d58ffa5439" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../flutter/flutter" beforeDir="false" afterPath="$PROJECT_DIR$/../../flutter/flutter" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../svelte/cloud-native-web" beforeDir="false" afterPath="$PROJECT_DIR$/../../svelte/cloud-native-web" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
