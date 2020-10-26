@@ -29,14 +29,12 @@ func main() {
 	userHandler := handler.NewUserHandler(userService, authService)
 
 	campaignRepository := campaign.NewRepository(db)
-	campaigns,err:=campaignRepository.FindByUserID(12)
-	if err != nil {
-		log.Println("Error on gettingAllCampaign")
-	}
-	//for _,campaign:= range campaigns{
-	//	campaign.ID
-	//}
-	log.Println(campaigns)
+	campaignService := campaign.NewService(campaignRepository)
+	log.Println(campaignService.FindCampaigns(12))
+	log.Println("==================================")
+	log.Println(campaignService.FindCampaigns(0))
+
+	//log.Println(campaigns)
 
 	router := gin.Default()
 	api := router.Group("/api/v1")
