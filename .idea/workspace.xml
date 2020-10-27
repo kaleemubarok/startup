@@ -33,7 +33,7 @@
       <change beforePath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../flutter/flutter" beforeDir="false" afterPath="$PROJECT_DIR$/../../flutter/flutter" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/campaign/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/formatter.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/formatter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/campaign.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/campaign.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../svelte/cloud-native-web" beforeDir="false" afterPath="$PROJECT_DIR$/../../svelte/cloud-native-web" afterDir="false" />
