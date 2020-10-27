@@ -24,17 +24,14 @@ func main() {
 	}
 
 	userRepository := user.NewRepository(db)
+	campaignRepository := campaign.NewRepository(db)
+
 	userService := user.NewService(userRepository)
 	authService := auth.NewService()
-	userHandler := handler.NewUserHandler(userService, authService)
-
-	campaignRepository := campaign.NewRepository(db)
 	campaignService := campaign.NewService(campaignRepository)
-	log.Println(campaignService.FindCampaigns(12))
-	log.Println("==================================")
-	log.Println(campaignService.FindCampaigns(0))
-
-	//log.Println(campaigns)
+	
+	userHandler := handler.NewUserHandler(userService, authService)
+	campaignHandler := handler.NewCampaignHandler(campaignService)
 
 	router := gin.Default()
 	api := router.Group("/api/v1")
@@ -43,6 +40,7 @@ func main() {
 	api.POST("/email_checkers", userHandler.CheckEmailAvailability)
 	api.POST("/avatars", authMiddleware(authService, userService), userHandler.UploadAvatar)
 
+	api.GET("/campaigns", campaignHandler.GetCampaigns)
 	router.Run()
 
 }
@@ -70,15 +68,15 @@ func authMiddleware(authService auth.Service, userService user.Service) gin.Hand
 			return
 		}
 
-		claim, ok:=token.Claims.(jwt.MapClaims)
+		claim, ok := token.Claims.(jwt.MapClaims)
 
-		if !ok || !token.Valid{
+		if !ok || !token.Valid {
 			response := helper.APIRespose("Unauthorized", http.StatusUnauthorized, "error", nil)
 			c.AbortWithStatusJSON(http.StatusUnauthorized, response)
 			return
 		}
 
-		userID:=int(claim["user_id"].(float64))
+		userID := int(claim["user_id"].(float64))
 		user, err := userService.GetUserByID(userID)
 
 		if err != nil {
@@ -87,7 +85,7 @@ func authMiddleware(authService auth.Service, userService user.Service) gin.Hand
 			return
 		}
 
-		c.Set("currentUser",user)
+		c.Set("currentUser", user)
 
 	}
 }
