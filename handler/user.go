@@ -4,16 +4,18 @@ import (
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
+	"startup/auth"
 	"startup/helper"
 	"startup/user"
 )
 
 type userHandler struct {
 	userService user.Service
+	authService auth.Service
 }
 
-func NewUserHandler(service user.Service) *userHandler {
-	return &userHandler{service}
+func NewUserHandler(service user.Service, auth auth.Service) *userHandler {
+	return &userHandler{service,auth}
 }
 
 func (h *userHandler) RegisterUser(c *gin.Context) {
@@ -36,7 +38,15 @@ func (h *userHandler) RegisterUser(c *gin.Context) {
 		return
 	}
 
-	formatter := user.FormatUser(newUser, "token")
+	token, err:=h.authService.GenerateToken(newUser.ID)
+	if err != nil {
+		errorMessage := helper.FormatValidationError(err)
+		response := helper.APIRespose("Register account failed.", http.StatusInternalServerError, "error", errorMessage)
+		c.JSON(http.StatusInternalServerError, response)
+		return
+	}
+
+	formatter := user.FormatUser(newUser, token)
 	response := helper.APIRespose("Account has been created.", http.StatusOK, "success", formatter)
 	c.JSON(http.StatusOK, response)
 }
@@ -47,8 +57,8 @@ func (h *userHandler) Login(c *gin.Context) {
 	err := c.ShouldBindJSON(&input)
 	if err != nil {
 		errorMessage := helper.FormatValidationError(err)
-		response := helper.APIRespose("Login failed.", http.StatusUnprocessableEntity, "error", errorMessage)
-		c.JSON(http.StatusUnprocessableEntity, response)
+		response := helper.APIRespose("Login failed.", http.StatusBadRequest, "error", errorMessage)
+		c.JSON(http.StatusBadRequest, response)
 		return
 	}
 
@@ -60,7 +70,15 @@ func (h *userHandler) Login(c *gin.Context) {
 		return
 	}
 
-	formatter := user.FormatUser(loginUser, "token")
+	token, err:=h.authService.GenerateToken(loginUser.ID)
+	if err != nil {
+		errorMessage := gin.H{"errors": err.Error()}
+		response := helper.APIRespose("Login failed.", http.StatusInternalServerError, "error", errorMessage)
+		c.JSON(http.StatusInternalServerError, response)
+		return
+	}
+
+	formatter := user.FormatUser(loginUser, token)
 	response := helper.APIRespose("Successfully login.", http.StatusOK, "success", formatter)
 
 	c.JSON(http.StatusOK, response)
@@ -117,8 +135,8 @@ func (h *userHandler) UploadAvatar(c *gin.Context) {
 		return
 	}
 
-	//TODO jwt get userID
-	userID := 3
+	user:=c.MustGet("currentUser").(user.User)
+	userID := user.ID
 	_, err = h.userService.SaveAvatar(userID, path)
 	if err != nil {
 		log.Println("SaveAvatar: "+err.Error())

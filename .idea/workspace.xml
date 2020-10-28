@@ -33,10 +33,9 @@
       <change beforePath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../flutter/flutter" beforeDir="false" afterPath="$PROJECT_DIR$/../../flutter/flutter" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/formatter.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/formatter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/campaign.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/campaign.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../svelte/cloud-native-web" beforeDir="false" afterPath="$PROJECT_DIR$/../../svelte/cloud-native-web" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,22 +142,22 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="713" y="429" key="Github.ShareDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603129342666" />
-    <state width="1126" height="295" key="GridCell.Tab.0.bottom" timestamp="1603211716255">
+    <state width="1126" height="295" key="GridCell.Tab.0.bottom" timestamp="1603772386317">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1603211716255" />
-    <state width="1126" height="295" key="GridCell.Tab.0.center" timestamp="1603211716254">
+    <state width="1126" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1603772386317" />
+    <state width="1126" height="295" key="GridCell.Tab.0.center" timestamp="1603772386316">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1603211716254" />
-    <state width="1126" height="295" key="GridCell.Tab.0.left" timestamp="1603211716254">
+    <state width="1126" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1603772386316" />
+    <state width="1126" height="295" key="GridCell.Tab.0.left" timestamp="1603772386316">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1603211716254" />
-    <state width="1126" height="295" key="GridCell.Tab.0.right" timestamp="1603211716255">
+    <state width="1126" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1603772386316" />
+    <state width="1126" height="295" key="GridCell.Tab.0.right" timestamp="1603772386316">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1603211716255" />
+    <state width="1126" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1603772386316" />
     <state x="341" y="164" key="SettingsEditor" timestamp="1603130076259">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -171,6 +170,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="747" y="409" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1680.1050@0.0.1680.1050" timestamp="1602956061288" />
+    <state x="610" y="352" width="460" height="341" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1603640953875">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="610" y="352" width="460" height="341" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603640953875" />
     <state x="685" y="305" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1602956080865">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -191,13 +194,17 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="662" y="426" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603205769078" />
-    <state width="600" height="428" key="javadoc.popup" timestamp="1603189173868">
+    <state width="600" height="428" key="javadoc.popup" timestamp="1603731871371">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="600" height="428" key="javadoc.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603189173868" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1603205756887">
+    <state width="600" height="428" key="javadoc.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603731871371" />
+    <state x="683" y="298" key="refactoring.ChangeSignatureDialog" timestamp="1603731640629">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603205756887" />
+    <state x="683" y="298" key="refactoring.ChangeSignatureDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603731640629" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1603772429590">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603772429590" />
   </component>
 </project>
