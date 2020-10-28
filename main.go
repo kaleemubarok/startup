@@ -18,7 +18,7 @@ import (
 
 func main() {
 	// dsn := "mysql:mysql@tcp(127.0.0.1:3306)/startup?charset=utf8mb4&parseTime=True&loc=Local"
-	db, err := gorm.Open(sqlite.Open("sqlite.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("sqlite-baru-20201028.db"), &gorm.Config{})
 
 	if err != nil {
 		log.Fatal(err.Error())

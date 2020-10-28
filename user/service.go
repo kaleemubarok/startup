@@ -28,6 +28,16 @@ func (s *service) RegisterUser(input RegisterUserInput) (User, error) {
 	user.Occupation = input.Occupation
 	user.Email = input.Email
 
+	email := input.Email
+	isEmailAvailable, err := s.repository.FindByEmail(email)
+	if err != nil {
+		return user, err
+	}
+
+	if isEmailAvailable.ID != 0 {
+		return user, errors.New("email " + email + " sudah digunakan")
+	}
+
 	passwordBcrypt, err := bcrypt.GenerateFromPassword([]byte(input.Password), bcrypt.MinCost)
 	if err != nil {
 		return user, err
