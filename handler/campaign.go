@@ -29,3 +29,22 @@ func (h *campaignHandler) GetCampaigns(c *gin.Context) {
 	c.JSON(http.StatusOK, response)
 
 }
+
+func (h *campaignHandler) GetCampaign(c *gin.Context)  {
+	var input campaign.GetCampaignDetailInput
+	err := c.ShouldBindUri(&input)
+	if err != nil {
+		response:=helper.APIRespose("Error to get campaignDetails details", http.StatusBadRequest,"error",nil)
+		c.JSON(http.StatusBadRequest,response)
+		return
+	}
+	campaignDetails, errs := h.campaignService.GetCampaign(input)
+	if errs != nil {
+		response:=helper.APIRespose("Error to get campaignDetails details", http.StatusBadRequest,"error",errs)
+		c.JSON(http.StatusBadRequest,response)
+		return
+	}
+
+	response:=helper.APIRespose("Campaign details",http.StatusOK,"success", campaign.FormatCampaignDetails(campaignDetails))
+	c.JSON(http.StatusOK,response)
+}

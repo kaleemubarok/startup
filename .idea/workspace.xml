@@ -33,7 +33,13 @@
       <change beforePath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../flutter/flutter" beforeDir="false" afterPath="$PROJECT_DIR$/../../flutter/flutter" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/entity.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/entity.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/campaign/formatter.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/formatter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/input.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/input.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/campaign/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/campaign.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/campaign.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../svelte/cloud-native-web" beforeDir="false" afterPath="$PROJECT_DIR$/../../svelte/cloud-native-web" afterDir="false" />
@@ -174,10 +180,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="610" y="352" width="460" height="341" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603640953875" />
-    <state x="685" y="305" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1602956080865">
+    <state x="685" y="305" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1603906827711">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="685" y="305" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1602956080864" />
+    <state x="685" y="305" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603906827711" />
     <state x="305" y="162" width="1638" height="1050" key="dock-window-1" timestamp="1602962265613">
       <screen x="0" y="23" width="1680" height="980" />
     </state>
@@ -202,9 +208,9 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="683" y="298" key="refactoring.ChangeSignatureDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603731640629" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1603772429590">
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1603948096453">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603772429590" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603948096453" />
   </component>
 </project>
