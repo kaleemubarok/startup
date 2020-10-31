@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"startup/campaign"
 	"startup/helper"
+	"startup/user"
 	"strconv"
 )
 
@@ -46,5 +47,29 @@ func (h *campaignHandler) GetCampaign(c *gin.Context)  {
 	}
 
 	response:=helper.APIRespose("Campaign details",http.StatusOK,"success", campaign.FormatCampaignDetails(campaignDetails))
+	c.JSON(http.StatusOK,response)
+}
+
+func (h *campaignHandler) CreateCampaign(c *gin.Context)  {
+	var input campaign.CreateCampaignInput
+	err := c.ShouldBindJSON(&input)
+	if err != nil {
+		response:=helper.APIRespose("Failed to create campaign", http.StatusBadRequest,"error",nil)
+		c.JSON(http.StatusBadRequest,response)
+		return
+	}
+
+	currentUser:=c.MustGet("currentUser").(user.User)
+
+	input.User=currentUser
+
+	newCampaign, err:=h.campaignService.CreateCampaign(input)
+	if err != nil {
+		response:=helper.APIRespose("Failed to create campaign", http.StatusBadRequest,"error",nil)
+		c.JSON(http.StatusBadRequest,response)
+		return
+	}
+
+	response:=helper.APIRespose("Success to create campaign",http.StatusOK,"success", campaign.FormatCampaign(newCampaign))
 	c.JSON(http.StatusOK,response)
 }

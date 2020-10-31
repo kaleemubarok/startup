@@ -33,8 +33,6 @@
       <change beforePath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker/blog-docker-dev-environment-example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../flutter/flutter" beforeDir="false" afterPath="$PROJECT_DIR$/../../flutter/flutter" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/campaign/entity.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/entity.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/campaign/formatter.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/formatter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/campaign/input.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/input.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/campaign/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/campaign/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/campaign/service.go" afterDir="false" />
@@ -200,17 +198,17 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="662" y="426" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603205769078" />
-    <state width="600" height="428" key="javadoc.popup" timestamp="1603731871371">
+    <state width="600" height="399" key="javadoc.popup" timestamp="1604175721601">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="600" height="428" key="javadoc.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603731871371" />
+    <state width="600" height="399" key="javadoc.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1604175721601" />
     <state x="683" y="298" key="refactoring.ChangeSignatureDialog" timestamp="1603731640629">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="683" y="298" key="refactoring.ChangeSignatureDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1603731640629" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1603948096453">
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1604163911790">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1603948096453" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1604163911790" />
   </component>
 </project>
