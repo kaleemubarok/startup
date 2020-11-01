@@ -12,6 +12,7 @@ type Service interface {
 	GetCampaign(ID GetCampaignDetailInput) (Campaign, error)
 	CreateCampaign(input CreateCampaignInput) (Campaign, error)
 	UpdateCampaign(ID GetCampaignDetailInput, campaignInput CreateCampaignInput) (Campaign, error)
+	CreateCampaignImage(input CreateCampaignImageInput, filePathLocation string) (CampaignImages, error)
 }
 
 type service struct {
@@ -56,7 +57,7 @@ func (s service) CreateCampaign(input CreateCampaignInput) (Campaign, error) {
 	campaign.UserID = input.User.ID
 	campaign.Perks = input.Perks
 
-	slug := s.generateSlug(slug.Make(input.Name),0)
+	slug := s.generateSlug(slug.Make(input.Name), 0)
 	campaign.Slug = slug
 
 	newCampaign, err := s.repository.Save(campaign)
@@ -70,7 +71,7 @@ func (s service) CreateCampaign(input CreateCampaignInput) (Campaign, error) {
 func (s *service) generateSlug(slug string, slugIdentifier int) string {
 	slugString := slug
 	if slugIdentifier != 0 {
-		slugString = fmt.Sprint(slugString,"-", slugIdentifier)
+		slugString = fmt.Sprint(slugString, "-", slugIdentifier)
 	}
 
 	findSlug, _ := s.repository.FindBySlug(slugString)
@@ -81,23 +82,23 @@ func (s *service) generateSlug(slug string, slugIdentifier int) string {
 	return slugString
 }
 
-func (s *service) UpdateCampaign(ID GetCampaignDetailInput, campaignInput CreateCampaignInput) (Campaign, error)  {
+func (s *service) UpdateCampaign(ID GetCampaignDetailInput, campaignInput CreateCampaignInput) (Campaign, error) {
 	campaign, err := s.repository.FindByID(ID.ID)
 	if err != nil {
 		return campaign, err
 	}
 
-	if campaign.User.ID!=campaignInput.User.ID {
+	if campaign.User.ID != campaignInput.User.ID {
 		return campaign, errors.New("unauthorized to update this campaign")
 	}
 
 	if strings.Compare(campaign.Name, campaignInput.Name) != 0 {
-		campaign.Slug=s.generateSlug(slug.Make(campaignInput.Name), 0)
+		campaign.Slug = s.generateSlug(slug.Make(campaignInput.Name), 0)
 	}
-	campaign.Name=campaignInput.Name
-	campaign.Description=campaignInput.Description
-	campaign.ShortDescription=campaignInput.ShortDescription
-	campaign.Perks= campaignInput.Perks
+	campaign.Name = campaignInput.Name
+	campaign.Description = campaignInput.Description
+	campaign.ShortDescription = campaignInput.ShortDescription
+	campaign.Perks = campaignInput.Perks
 
 	updatedCampaign, err := s.repository.Update(campaign)
 	if err != nil {
@@ -105,4 +106,38 @@ func (s *service) UpdateCampaign(ID GetCampaignDetailInput, campaignInput Create
 	}
 
 	return updatedCampaign, nil
+}
+
+func (s *service) CreateCampaignImage(input CreateCampaignImageInput, filePathLocation string) (CampaignImages, error) {
+	isPrimary := 0
+
+	if input.IsPrimary {
+		isPrimary = 1
+
+		err := s.repository.ResetAllIsPrimaryToZero(input.CampaignID)
+		if err != nil {
+			return CampaignImages{}, err
+		}
+	}
+
+	campaignDetail, err:=s.repository.FindByID(input.CampaignID)
+	if err != nil {
+		return CampaignImages{}, err
+	}
+
+	if input.User.ID!=campaignDetail.UserID {
+		return CampaignImages{}, errors.New("you are not authorized to update images for this campaign")
+	}
+
+	campaignImage := CampaignImages{}
+	campaignImage.CampaignID = input.CampaignID
+	campaignImage.FileName = filePathLocation
+	campaignImage.IsPrimary = isPrimary
+
+	newCampaignImage, err := s.repository.CreateImage(campaignImage)
+	if err != nil {
+		return newCampaignImage, err
+	}
+
+	return newCampaignImage, nil
 }

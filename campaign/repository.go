@@ -11,6 +11,8 @@ type Repository interface {
 	FindBySlug(slung string) (Campaign, error)
 	Save(campaign Campaign) (Campaign, error)
 	Update(campaign Campaign) (Campaign, error)
+	CreateImage(images CampaignImages) (CampaignImages, error)
+	ResetAllIsPrimaryToZero(campaignID int) error
 }
 
 type repository struct {
@@ -59,7 +61,7 @@ func (r *repository) FindBySlug(slug string) (Campaign, error) {
 	return campaign, nil
 }
 
-func (r *repository) Save(campaign Campaign) (Campaign, error)  {
+func (r *repository) Save(campaign Campaign) (Campaign, error) {
 	err := r.db.Create(&campaign).Error
 	if err != nil {
 		return campaign, err
@@ -68,10 +70,24 @@ func (r *repository) Save(campaign Campaign) (Campaign, error)  {
 	return campaign, nil
 }
 
-func (r *repository) Update(campaign Campaign) (Campaign, error)  {
+func (r *repository) Update(campaign Campaign) (Campaign, error) {
 	err := r.db.Save(&campaign).Error
 	if err != nil {
 		return campaign, err
 	}
-	return campaign,nil
+	return campaign, nil
+}
+
+func (r *repository) CreateImage(image CampaignImages) (CampaignImages, error) {
+	err := r.db.Create(&image).Error
+	if err != nil {
+		return image, err
+	}
+
+	return image, nil
+}
+
+func (r *repository) ResetAllIsPrimaryToZero(campaignID int) error {
+	err := r.db.Model(&CampaignImages{}).Where("campaign_id", campaignID).Update("is_primary", 0).Error
+	return err
 }

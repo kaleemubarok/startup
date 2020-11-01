@@ -1,7 +1,9 @@
 package handler
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"log"
 	"net/http"
 	"startup/campaign"
 	"startup/helper"
@@ -106,4 +108,53 @@ func (h *campaignHandler) UpdateCampaign(c *gin.Context) {
 
 	response := helper.APIRespose("Success to update campaign", http.StatusOK, "success", campaign.FormatCampaign(updatedCampaign))
 	c.JSON(http.StatusOK, response)
+}
+
+func (h *campaignHandler) CreateCampaignImage(c *gin.Context) {
+	input := campaign.CreateCampaignImageInput{}
+	err := c.ShouldBind(&input)
+	if err != nil {
+		errorMessage := gin.H{"errors": helper.FormatValidationError(err)}
+		response := helper.APIRespose("Failed to upload campaign image", http.StatusBadRequest, "error", errorMessage)
+		c.JSON(http.StatusBadRequest, response)
+		return
+	}
+
+	file, err := c.FormFile("file")
+	if err != nil {
+		log.Println("FormFile: " + err.Error())
+		errorMessage := gin.H{"is_uploaded": false}
+		response := helper.APIRespose("Failed to upload campaign image", http.StatusBadRequest, "error", errorMessage)
+		c.JSON(http.StatusUnprocessableEntity, response)
+		return
+	}
+
+	user := c.MustGet("currentUser").(user.User)
+	input.User=user
+
+	path := fmt.Sprintf("images/CI%d%d-%s", input.CampaignID, user.ID, file.Filename)
+
+	err = c.SaveUploadedFile(file, path)
+	if err != nil {
+		log.Println("SaveCampaignImage: " + err.Error())
+
+		errorMessage := gin.H{"is_uploaded": false}
+		response := helper.APIRespose("Failed to upload campaign image", http.StatusBadRequest, "error", errorMessage)
+		c.JSON(http.StatusUnprocessableEntity, response)
+		return
+	}
+
+	_, err = h.campaignService.CreateCampaignImage(input, path)
+	if err != nil {
+		log.Println("FormFile: " + err.Error())
+		errorMessage := gin.H{"is_uploaded": false}
+		response := helper.APIRespose("Failed to upload campaign image", http.StatusBadRequest, "error", errorMessage)
+		c.JSON(http.StatusUnprocessableEntity, response)
+		return
+	}
+
+	data := gin.H{"is_uploaded": true}
+	response := helper.APIRespose("Success to update campaign image", http.StatusOK, "success", data)
+	c.JSON(http.StatusOK, response)
+
 }
