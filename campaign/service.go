@@ -1,14 +1,17 @@
 package campaign
 
 import (
+	"errors"
 	"fmt"
 	"github.com/gosimple/slug"
+	"strings"
 )
 
 type Service interface {
 	GetCampaigns(userID int) ([]Campaign, error)
 	GetCampaign(ID GetCampaignDetailInput) (Campaign, error)
 	CreateCampaign(input CreateCampaignInput) (Campaign, error)
+	UpdateCampaign(ID GetCampaignDetailInput, campaignInput CreateCampaignInput) (Campaign, error)
 }
 
 type service struct {
@@ -64,16 +67,42 @@ func (s service) CreateCampaign(input CreateCampaignInput) (Campaign, error) {
 	return newCampaign, nil
 }
 
-func (s *service) generateSlug(slug string, slugIndentifier int) string {
+func (s *service) generateSlug(slug string, slugIdentifier int) string {
 	slugString := slug
-	if slugIndentifier != 0 {
-		slugString = fmt.Sprint(slugString,"-",slugIndentifier)
+	if slugIdentifier != 0 {
+		slugString = fmt.Sprint(slugString,"-", slugIdentifier)
 	}
 
 	findSlug, _ := s.repository.FindBySlug(slugString)
 	if findSlug.ID != 0 {
-		return s.generateSlug(slug,slugIndentifier+1)
+		return s.generateSlug(slug, slugIdentifier+1)
 	}
 
 	return slugString
+}
+
+func (s *service) UpdateCampaign(ID GetCampaignDetailInput, campaignInput CreateCampaignInput) (Campaign, error)  {
+	campaign, err := s.repository.FindByID(ID.ID)
+	if err != nil {
+		return campaign, err
+	}
+
+	if campaign.User.ID!=campaignInput.User.ID {
+		return campaign, errors.New("unauthorized to update this campaign")
+	}
+
+	if strings.Compare(campaign.Name, campaignInput.Name) != 0 {
+		campaign.Slug=s.generateSlug(slug.Make(campaignInput.Name), 0)
+	}
+	campaign.Name=campaignInput.Name
+	campaign.Description=campaignInput.Description
+	campaign.ShortDescription=campaignInput.ShortDescription
+	campaign.Perks= campaignInput.Perks
+
+	updatedCampaign, err := s.repository.Update(campaign)
+	if err != nil {
+		return updatedCampaign, err
+	}
+
+	return updatedCampaign, nil
 }

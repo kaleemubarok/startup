@@ -3,6 +3,7 @@ package helper
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
+	"reflect"
 )
 
 type Response struct {
@@ -12,7 +13,7 @@ type Response struct {
 
 type Meta struct {
 	Message string `json:"message"`
-	Code    int `json:"code"`
+	Code    int    `json:"code"`
 	Status  string `json:"status"`
 }
 
@@ -33,8 +34,13 @@ func APIRespose(message string, code int, status string, data interface{}) Respo
 
 func FormatValidationError(err error) interface{} {
 	var errors []string
-	for _, e := range err.(validator.ValidationErrors) {
-		errors = append(errors, e.Error())
+	ok := reflect.TypeOf(reflect.Array) == reflect.TypeOf(err)
+	if !ok {
+		errors = append(errors, err.Error())
+	} else {
+		for _, e := range err.(validator.ValidationErrors) {
+			errors = append(errors, e.Error())
+		}
 	}
 	errorMessage := gin.H{"errors": errors}
 	return errorMessage
