@@ -92,6 +92,8 @@ github.com/ugorji/go/codec v1.1.12 h1:pv4DBnMb5X9XXCNC0DyEmhU3I/61gWDdyH7iZps5DL
 github.com/ugorji/go/codec v1.1.12/go.mod h1:U/SFD954ms+MwaHihwfeIz/sGz5OFgHt81tHc+Duy5k=
 github.com/ugorji/go/codec v1.1.13 h1:013LbFhocBoIqgHeIHKlV4JWYhqogATYWZhIcH0WHn4=
 github.com/ugorji/go/codec v1.1.13/go.mod h1:oNVt3Dq+FO91WNQ/9JnHKQP2QJxTzoN7wCBFCq1OeuU=
+github.com/veritrans/go-midtrans v0.0.0-20201104044830-f33080511b0b h1:WKmnsUJFiKEHvYHPfoqaOirs0yH/KsHvG/PBpAjOAi8=
+github.com/veritrans/go-midtrans v0.0.0-20201104044830-f33080511b0b/go.mod h1:21mwYsDK+z+5kR2fvUB8n2yijZZm504Vjzk1s0rNQJg=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9 h1:psW17arqaxU48Z5kZ0CQnkZWQJsqcURM6tKiBApRjXI=
 golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=

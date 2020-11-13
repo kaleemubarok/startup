@@ -54,7 +54,7 @@ func FormatUserTransaction(transaction Transaction) UserTransactionFormatter {
 	format.CreatedAt = transaction.CreatedAt
 
 	campaignImageFormat := UserTransactionCampaignImages{}
-	campaignImageFormat.Name=transaction.Campaign.Name
+	campaignImageFormat.Name = transaction.Campaign.Name
 
 	if len(transaction.Campaign.CampaignImages) > 0 {
 		campaignImageFormat.ImageURL = transaction.Campaign.CampaignImages[0].FileName
@@ -65,7 +65,7 @@ func FormatUserTransaction(transaction Transaction) UserTransactionFormatter {
 	return format
 }
 
-func FormatUserTransactions(transactions []Transaction) []UserTransactionFormatter{
+func FormatUserTransactions(transactions []Transaction) []UserTransactionFormatter {
 	if len(transactions) == 0 {
 		return []UserTransactionFormatter{}
 	}
@@ -76,4 +76,27 @@ func FormatUserTransactions(transactions []Transaction) []UserTransactionFormatt
 	}
 
 	return formatter
+}
+
+type TransactionFormatter struct {
+	ID         int    `json:"id"`
+	CampaignID int    `json:"campaign_id"`
+	UserID     int    `json:"user_id"`
+	Amount     int    `json:"amount"`
+	Status     string `json:"status"`
+	Code       string `json:"code"`
+	PaymentURL string `json:"payment_url"`
+}
+
+func FormatTransaction(transaction Transaction) TransactionFormatter {
+	format := TransactionFormatter{
+		ID:         transaction.ID,
+		CampaignID: transaction.CampaignID,
+		Amount:     transaction.Amount,
+		UserID:     transaction.UserID,
+		Status:     transaction.Status,
+		Code:       transaction.Code,
+		PaymentURL: transaction.PaymentURL,
+	}
+	return format
 }

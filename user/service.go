@@ -103,7 +103,7 @@ func (s *service) GetUserByID(ID int) (User, error) {
 	}
 
 	if user.ID == 0 {
-		return user, errors.New("cannot find user with ID given")
+		return user, errors.New("cannot find user with OrderID given")
 	}
 
 	return user, nil
