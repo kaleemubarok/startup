@@ -2,6 +2,7 @@ package transaction
 
 import (
 	"errors"
+	"log"
 	"math/rand"
 	"startup/campaign"
 	"startup/payment"
@@ -19,6 +20,7 @@ type Service interface {
 	GetTransactionsByCampaignID(input GetCampaignTransactionsInput) ([]Transaction, error)
 	GetTransactionByUserID(userID int) ([]Transaction, error)
 	SaveTransaction(input CreateTransactionInput) (Transaction, error)
+	ProcessNotification(input NotificationInput) error
 }
 
 func NewService(repository Repository, campaignRepository campaign.Repository, paymentService payment.Service) *service {
@@ -88,4 +90,66 @@ func generateTransactionCode(length int, userID int) string {
 	}
 
 	return string(b)
+}
+
+func (s *service) ProcessNotification(input NotificationInput) error {
+	transaction, err := s.repository.GetByCode(input.OrderID)
+	if err != nil {
+		return err
+	}
+	log.Println("[ProcessNotification] incoming payment notification: ", transaction)
+
+	//TODO validate signature key
+	/*sha:= sha512.New()
+	form:=transaction.Code+""
+	sha.Write([]byte("Postman-157856885120010000.00VT-server-HJMpl9HLr_ntOKt5mRONdmKj"))
+	fmt.Printf("[SHA]: %x", sha.Sum(nil))*/
+
+	var status string = "Canceled"
+	if input.PaymentType == "credit_card" {
+		if input.TransactionStatus == "capture" && input.FraudStatus == "accept" {
+			status = "Paid"
+		}
+		if input.FraudStatus == "challenge" {
+			status = "Pending"
+		}
+	} else {
+		if input.TransactionStatus == "settlement" {
+			status = "Paid"
+		}
+		if input.TransactionStatus == "pending" {
+			status = "Pending"
+		}
+	}
+
+	transaction.Status = status
+	updatedTransaction, err := s.repository.Update(transaction)
+	if err != nil {
+		return err
+	}
+	log.Println("[ProcessNotification] updated payment status: ", updatedTransaction)
+
+	if updatedTransaction.Status == "Paid" {
+		var campaign campaign.Campaign
+		if updatedTransaction.ID != 0 {
+			campaign, err = s.campaignRepository.FindByID(updatedTransaction.ID)
+			if err != nil {
+				return err
+			}
+
+			campaign.BakerCount += 1
+			campaign.CurrentAmount += updatedTransaction.Amount
+			campaign.UpdatedAt = time.Now()
+		}
+
+		updatedCampaign, err := s.campaignRepository.Update(campaign)
+		if err != nil {
+			return err
+		}
+		log.Println("[ProcessNotification] updated campaign details: ", updatedCampaign)
+
+	}
+
+	log.Println("[ProcessNotification] process completed [END]")
+	return nil
 }

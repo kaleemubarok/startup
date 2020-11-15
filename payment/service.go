@@ -3,22 +3,23 @@ package payment
 import (
 	"github.com/veritrans/go-midtrans"
 	"log"
+	"startup/campaign"
 	"startup/user"
 )
 
 type service struct {
-	
+	campaignRepository campaign.Repository
 }
 
 type Service interface {
-	GetPaymentURL(transaction Transaction, user user.User) (string,error)
+	GetPaymentURL(transaction Transaction, user user.User) (string, error)
 }
 
-func NewService() *service  {
-	return &service{}
+func NewService(campaignRepository campaign.Repository) *service {
+	return &service{campaignRepository}
 }
 
-func (s *service) GetPaymentURL(transaction Transaction, user user.User) (string,error)  {
+func (s *service) GetPaymentURL(transaction Transaction, user user.User) (string, error) {
 	midclient := midtrans.NewClient()
 	midclient.ServerKey = ""
 	midclient.ClientKey = ""
@@ -30,8 +31,8 @@ func (s *service) GetPaymentURL(transaction Transaction, user user.User) (string
 
 	snapReq := &midtrans.SnapReq{
 		CustomerDetail: &midtrans.CustDetail{
-			FName:    user.Name,
-			Email:    user.Email,
+			FName: user.Name,
+			Email: user.Email,
 		},
 		TransactionDetails: midtrans.TransactionDetails{
 			OrderID:  transaction.OrderID,
